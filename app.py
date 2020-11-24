@@ -30,10 +30,11 @@ def home():
 
 @app.route("/<res>")
 def result(res):
-	if {res} == 0:
-		return render_template("result.html", text="CKD not predicted")
+	print("res : " + res)
+	if res == '1':
+		return render_template("result.html", text=["You should really got to a specialist for advice", "we have detected severe problem in your kidney."])
 	else:
-		return render_template("result.html", text="CKD predicted")
+		return render_template("result.html", text=["congrates,we are happy for you.", "your kidney is sound and healthy."])
 
 if __name__ == "__main__":
 	app.run(debug=True)
