@@ -31,9 +31,9 @@ def home():
 @app.route("/<res>")
 def result(res):
 	if {res} == 0:
-		return "CKD not predicted"
+		return render_template("result.html", text="CKD not predicted")
 	else:
-		return "CKD predicted"
+		return render_template("result.html", text="CKD predicted")
 
 if __name__ == "__main__":
 	app.run(debug=True)
