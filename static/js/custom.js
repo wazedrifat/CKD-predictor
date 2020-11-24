@@ -18,7 +18,7 @@
     // ABOUT SLIDER
     $('body').vegas({
         slides: [
-            { src: 'images/slide-image01.jpg' } 
+            { src: {{ url_for('static', filename='images/slide-image01.jpg') }} } 
           
         ],
         timer: false,

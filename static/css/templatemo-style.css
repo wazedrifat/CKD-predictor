@@ -12,13 +12,14 @@ https://templatemo.com/tm-521-get-ready
     margin: 0;
     -webkit-perspective: 1000;
     font-family: 'Poppins', sans-serif;
-    background: #303030;
+	background: #303030;
   }
 
   body, html {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	overflow: hidden;
   }
 
 
