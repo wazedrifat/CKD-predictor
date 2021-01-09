@@ -445,7 +445,7 @@ input {
 }
 
 .card-1 .card-heading {
-  background: url({{ url_for('static', filename='"../images/kidney.jpg"') }}) center center/cover no-repeat;
+  background: url({{ url_for('static', filename='images/kidney.jpg') }}) center center/cover no-repeat;
   padding-top: 400px;
   padding-bottom: 10px;
 }
