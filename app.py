@@ -35,7 +35,6 @@ def file():
 
 @app.route("/", methods=["POST", "GET"])
 def home():
-
 	data = []
 	if request.method == "POST":
 		for n in names:
