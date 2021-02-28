@@ -507,9 +507,8 @@ address p {
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
-                         <div class="home-info" id="content">
-							<img src="{{ url_for('static', filename='images/input matrix.gif') }}" alt=''>
-							<h5>initializing CKD predictor</h5>
+                         <div class="home-info">
+                              <h1>{{text[0]}} <br> {{text[1]}}</h1>
                               <!-- You can change the date time in init.js file -->
                                
                              
@@ -521,27 +520,42 @@ address p {
      </section>
 
      <!-- SCRIPTS -->
-     
-     
-     
-
+     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/vegas.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/init.js') }}"></script>
 	 <script>
-		console.log("start");
-		var img = document.getElementById("img");
-		var txt = document.getElementById("text");
-		var res = document.getElementById("result");
+		 (function ($) {
+
+"use strict";
+
+  // PRE LOADER
+  $(window).load(function(){
+	$('.preloader').fadeOut(1000000000); // set duration in brackets    
+  });
+
+
+  // MENU
+  $('.menu-burger').on('click', function() {
+	$('.menu-bg, .menu-items, .menu-burger').toggleClass('fs');
+	$('.menu-burger').text() == "☰" ? $('.menu-burger').text('✕') : $('.menu-burger').text('☰');
+  });
+
+
+  // ABOUT SLIDER
+  $('body').vegas({
+	  slides: [
+		  { src: url({{ url_for('static', filename='images/slide-image01.jpg') }}) 
 		
-		var delayTime = 2000;
+	  ],
+	  timer: false,
+	  transition: [ 'zoomOut', ]
+  });
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/input matrix.gif') }}' alt=''><h5>processing input</h5>";}, delayTime);
+})(jQuery);
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h5>generating machine learning  & deep learning models</h5>";}, 2 * delayTime);
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h5>running simulation in models</h5>";}, 3 * delayTime);
+	 </script>
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h5>calculating result</h5>";}, 4 * delayTime);
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h5>processing suggestion</h5>";}, 5 * delayTime);
-
-		setTimeout(function() {document.getElementById("content").innerHTML = "<h1 id='result' >{{text[0]}} <br> {{text[1]}}</h1>";}, 6 * delayTime);
-	</script>
 </body>
 </html>
