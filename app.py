@@ -18,10 +18,18 @@ def file():
 		if request.files:
 			f = request.files['data_file']
 
+			# print(f)
+			if (f.filename[-3:] != "csv"):
+				return render_template("index.html", text=["file should be in a CSV format"])
+
 			if f:
 				stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
 				data = list(csv.reader(stream))
-				print(data)
+				# print(data)
+				# print("datasize = " + str(len(data[0])))
+
+				if (len(data[0]) != 24):
+					return render_template("index.html", text=["file should have above 24 information in left to right & then top to bottom order"])
 
 				for i in range(24):
 					data[0][i] = float((float(data[0][i]) - min[i]) / (max[i] - min[i]))
@@ -31,7 +39,7 @@ def file():
 		else:
 			return "no files added"
 	else:
-		return render_template("index.html")
+		return render_template("index.html", text=[""])
 
 @app.route("/", methods=["POST", "GET"])
 def home():
@@ -46,13 +54,13 @@ def home():
 		res = model.predict([data])[0]
 		return redirect(url_for("result", res=res))
 	else:	
-		return render_template("index.html")
+		return render_template("index.html", text=[""])
 
 @app.route("/<res>")
 def result(res):
 	print("res : " + res)
 	if res == '1':
-		return render_template("result.html", text=["You should really got to a specialist for advice", "we have detected severe problem in your kidney."])
+		return render_template("result.html", text=["You should really got to a specialist for advice", "we have detected probable problem in your kidney."])
 	else:
 		return render_template("result.html", text=["congrates,we are happy for you.", "your kidney is sound and healthy."])
 

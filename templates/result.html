@@ -509,7 +509,7 @@ address p {
                     <div class="col-md-12 col-sm-12">
                          <div class="home-info" id="content">
 							<img src="{{ url_for('static', filename='images/input matrix.gif') }}" alt=''>
-							<h5>initializing CKD predictor</h5>
+							<h3>initializing CKD predictor</h3>
                               <!-- You can change the date time in init.js file -->
                                
                              
@@ -533,13 +533,13 @@ address p {
 		
 		var delayTime = 2000;
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/input matrix.gif') }}' alt=''><h5>processing input</h5>";}, delayTime);
+		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/input matrix.gif') }}' alt=''><h3>processing input</h3>";}, delayTime);
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h5>generating machine learning  & deep learning models</h5>";}, 2 * delayTime);
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h5>running simulation in models</h5>";}, 3 * delayTime);
+		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h3>generating machine learning  & deep learning models</h3>";}, 2 * delayTime);
+		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/model.gif') }}' alt=''><h3>running simulation in models</h3>";}, 3 * delayTime);
 
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h5>calculating result</h5>";}, 4 * delayTime);
-		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h5>processing suggestion</h5>";}, 5 * delayTime);
+		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h3>calculating result</h3>";}, 4 * delayTime);
+		setTimeout(function() {document.getElementById("content").innerHTML = "<img src='{{ url_for('static', filename='images/loading.gif') }}' alt=''><h3>processing suggestion</h3>";}, 5 * delayTime);
 
 		setTimeout(function() {document.getElementById("content").innerHTML = "<h1 id='result' >{{text[0]}} <br> {{text[1]}}</h1>";}, 6 * delayTime);
 	</script>
