@@ -60,9 +60,9 @@ def home():
 def result(res):
 	print("res : " + res)
 	if res == '1':
-		return render_template("result.html", text=["You should really got to a specialist for advice", "we have detected probable problem in your kidney."])
+		return render_template("result.html", text=["Your data indicates  there is high probablity", " that your kidney is suffering."])
 	else:
-		return render_template("result.html", text=["congrates,we are happy for you.", "your kidney is sound and healthy."])
+		return render_template("result.html", text=["According to your data ", "your kidney is safe and sound"])
 
 if __name__ == "__main__":
 	app.run(debug=True)
